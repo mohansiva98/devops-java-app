@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-java-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-java-app
+  template:
+    metadata:
+      labels:
+        app: devops-java-app
+    spec:
+      containers:
+      - name: devops-java-app
+        image: <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/devops-java-app:<IMAGE_TAG>
+        ports:
+        - containerPort: 8080
